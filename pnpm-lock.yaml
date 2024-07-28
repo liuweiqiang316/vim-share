@@ -8,12 +8,21 @@ dependencies:
   '@slidev/cli':
     specifier: ^0.48.8
     version: 0.48.8(@types/markdown-it@13.0.7)(postcss@8.4.38)
+  '@slidev/theme-apple-basic':
+    specifier: ^0.25.1
+    version: 0.25.1
   '@slidev/theme-default':
     specifier: latest
     version: 0.25.0
   '@slidev/theme-seriph':
     specifier: latest
     version: 0.25.0
+  slidev-theme-dracula:
+    specifier: ^0.2.0
+    version: 0.2.0
+  slidev-theme-mokkapps:
+    specifier: ^1.3.2
+    version: 1.3.2
   vue:
     specifier: ^3.4.21
     version: 3.4.21(typescript@5.4.3)
@@ -1183,6 +1192,15 @@ packages:
       roughjs: 4.6.6
     dev: false
 
+  /@slidev/theme-apple-basic@0.25.1:
+    resolution: {integrity: sha512-saA5yYui+jTT13tP+QJKnWeM8sK0IA1iln2E3sWAJsfKdQHUD3fw8+AlUHLUH6yc8NPq3ewtZcwWx49a/iF8Tg==}
+    engines: {node: '>=14.0.0', slidev: '>=v0.47.0'}
+    dependencies:
+      '@slidev/types': 0.47.5
+      codemirror-theme-vars: 0.1.2
+      prism-theme-vars: 0.2.4
+    dev: false
+
   /@slidev/theme-default@0.25.0:
     resolution: {integrity: sha512-iWvthH1Ny+i6gTwRnEeeU+EiqsHC56UdEO45bqLSNmymRAOWkKUJ/M0o7iahLzHSXsiPu71B7C715WxqjXk2hw==}
     engines: {node: '>=14.0.0', slidev: '>=v0.47.0'}
@@ -1199,6 +1217,16 @@ packages:
       '@slidev/types': 0.47.5
       codemirror-theme-vars: 0.1.2
       prism-theme-vars: 0.2.4
+    dev: false
+
+  /@slidev/types@0.40.16:
+    resolution: {integrity: sha512-gJ2kgbln/RoYct6n3umDLmyI6xqPQZgGa4n6sltsXiOfWASDMfI5hoWvhpKsio3Wegw4uvBdbQ8zO4rofIKcmQ==}
+    engines: {node: '>=14.0.0'}
+    dev: false
+
+  /@slidev/types@0.42.11:
+    resolution: {integrity: sha512-K7+UWzEQpUe3eEFs7ktm3tw17Ke9ZOJPTy7yGSlZfWl4jCTf9Z0HNKECPLQ3JGL6EkJ4Wyy1y0HE92/20cTn0Q==}
+    engines: {node: '>=14.0.0'}
     dev: false
 
   /@slidev/types@0.47.5:
@@ -4622,6 +4650,23 @@ packages:
     dev: false
     optional: true
 
+  /slidev-theme-dracula@0.2.0:
+    resolution: {integrity: sha512-ndMD27+gUNYt9aXrb4/0vSBHKP007mpD2eCJppzhqXDG1DmN0Q6I6iFz+QvIjOPDKzzPjoYZbsWp6lPLJjgs9g==}
+    engines: {node: '>=14.0.0', slidev: '>=0.19.3'}
+    dependencies:
+      '@slidev/types': 0.42.11
+      codemirror-theme-vars: 0.1.2
+      prism-theme-vars: 0.2.4
+      theme-vitesse: 0.7.7
+    dev: false
+
+  /slidev-theme-mokkapps@1.3.2:
+    resolution: {integrity: sha512-64ZOg0iDn7QRtFtq+R4nCHbKu36QANXqdSnO7uYlcnDV23veWYTBjGesYJYnF6Co2Ivgbe9r31+e8UQ5KrmhKg==}
+    engines: {node: '>=14.0.0', slidev: '>=0.19.3'}
+    dependencies:
+      '@slidev/types': 0.40.16
+    dev: false
+
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
@@ -4721,6 +4766,11 @@ packages:
       yallist: 4.0.0
     dev: false
     optional: true
+
+  /theme-vitesse@0.7.7:
+    resolution: {integrity: sha512-wxGbX0iEo2sxFotZOxiNj7oihFFvU1jS2xpyKXp4NBiqibwGyMDLlBRlMXI8igJ08x6eqi+EIMd9oU1nG71z4Q==}
+    engines: {vscode: ^1.43.0}
+    dev: false
 
   /to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}

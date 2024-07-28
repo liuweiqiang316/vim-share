@@ -5,12 +5,8 @@ theme: seriph
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides, markdown enabled
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
+title: 在vscode中使用vim
 
-  Learn more at [Sli.dev](https://sli.dev)
 # apply any unocss classes to the current slide
 class: text-center
 # https://sli.dev/custom/highlighters.html
@@ -24,9 +20,7 @@ transition: slide-left
 mdc: true
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
+# 在vscode中使用vim
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -38,564 +32,281 @@ Presentation slides for developers
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:edit />
   </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
 </div>
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+皮一下：安装vim插件，分享结束
 -->
 
 ---
 transition: fade-out
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-## Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc v-click minDepth="1" maxDepth="2"></Toc>
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover![^1]
-
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn More](https://sli.dev/guide/animations#click-animations)
-
-</div>
-
----
 preload: false
 ---
 
-# Motions
+# vim是什么
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
+<div class="quote">
+    <span>
+        Vim is a <span v-mark="{at: 2, color: 'rgb(248 113 113 )'}">highly configurable</span> text editor built to make creating and
+        changing any kind of text very <span v-mark="{at: 1, color: 'rgb(248 113 113 )'}">efficient</span>.
+    </span>
+    <span class="quote-link">
+        ---<a src="https://www.vim.org">vim.org</a>
+    </span>
 </div>
-```
 
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
+<!--
+两部分
+1. 高效
+2. 可配置
+
+本次不讲高度可配置，只讲如何高效编辑
+
+-->
+
+---
+layout: full
+---
+
+# 场景
+
+
+````md magic-move
+```ts
+
+// 给一个函数包裹一个节流函数
+export function fetchLogin(userName: string, password: string) {
+  return request<Api.Auth.LoginToken>({
+    url: '/auth/login',
+    method: 'post',
+    data: {
+      userName,
+      password
+    }
+  });
+}
+
+```
+```ts
+
+export const fetchLogin = throttle((userName: string, password: string) => {
+  return ({
+    url: '/auth/login',
+    method: 'post',
+    data: {
+      userName,
+      password
+    }
+  });
+})
+
+```
+````
+
+<div v-click>如果有一百个函数需要修改呢？</div>
+
+
+<!--
+
+1. 给请求函数包裹一个节流函数
+2. 进阶：@@ 重复执行
+3. 进阶：一次给整个文件的函数包裹节流
+
+
+先看基础操作，再根据基础操作组合进行宏（marco）
+
+-->
+
+---
+layout: image-right
+image: https://cover.sli.dev?t=basic
+---
+
+# vim基础
+
+<div class="custom-two-cols" >
+ <ul>
+  <li>1. 保存、退出</li>
+  <li>2. 移动</li>
+  <li>3. 编辑</li>
+  <li>4. 删除</li>
+ </ul>
+ <ul>
+  <li>5. 撤销</li>
+  <li>6. 修订替换</li>
+  <li>7. 查找替换</li>
+  <li>8. 跳转</li>
+ </ul>
+</div>
+
+
+---
+layout: image-left
+image: https://cover.sli.dev?t=save
+---
+
+# 保存、退出
+<code>:w</code> 保存<br />
+<code>:w!</code> 强制保存<br />
+<code>:q</code> 退出<br />
+<code>:wq</code> 保存并退出<br />
+<code>:q!</code> 保存并退出<br />
+<code>ZZ</code>保存并退出<br />
+
+---
+layout: image-right
+image: https://cover.sli.dev?t=move
+---
+# 移动
+<code>hjkl</code><br />
+<code>w</code>下一个单词开头<br />
+<code>b</code>前一个单词开头<br />
+<code>e</code>下一个单词结尾<br />
+<code>0</code>行首<br />
+<code>$</code>行尾<br />
+<code>^</code>第一个非空字符<br />
+<code>%</code>括号匹配<br />
+<code>*</code>向下匹配光标下单词<br />
+<code>#</code>向上匹配光标下单词<br />
+<code>gg</code>首行<br />
+<code>G</code>最后一行<br />
+<code>nG</code>3G<br />
+
+---
+layout: image-left
+image: https://cover.sli.dev?t=edit
+---
+## 编辑
+<code>y</code>yank<br />
+<code>i</code>insert<br />
+<code>a</code>append<br />
+<code>o</code>下一行插入<br />
+<code>I</code>行首插入<br />
+<code>A</code>行尾插入<br />
+<code>O</code>上一行插入<br />
+<code>p</code>put<br />
+<code>r</code>replace<br />
+<code>c</code>change<br />
+<code>.</code>repeat<br />
+
+## 删除
+<code>d</code>delete<br />
+<code>dd</code>删除当前行<br />
+<code>D</code>删除到行尾<br />
+
+## 撤销
+<code>u</code>撤销 undo<br />
+<code>c-r</code>反撤销 redo<br />
+
+---
+layout: two-cols
+---
+
+# 查找
+
+<div class="custom-center">
+  <div class="item">
+    <code>?pattern</code>向前找
   </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+  <div class="item">
+    <code>/pattern</code>向后找
+  </div>
+  <div class="item">
+    <code>n</code>
+  </div>
+  <div class="item">
+    <code>N</code>
   </div>
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
 
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
+::right::
+# 替换
+<div class="custom-center">
+  <div class="item">
+    <code>:s/old/new</code>
+    <span>替换本行第一个</span>
+  </div>
+  <div class="item">
+    <code>:s/old/new/g</code>
+    替换本行所有
+  </div>
+  <div class="item">
+    <code>:%s/old/new</code>
+    <span>替换全文件所有</span>
+  </div>
+  <div class="item">
+    <code>:%s/old/new/gc</code>
+    <span>替换全文件所有,并给出确认提示</span>
+  </div>
+  <div class="item">
+    <code>:#,#s/old/new/g</code>
+    <span>#,#是要更改范围</span>
+  </div>
 </div>
 
 ---
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
+layout: image-right
+image: https://cover.sli.dev?t=jump
 ---
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
+# 跳转
+<div class="custom-center">
+  <div class="item">
+    <code>c-i</code>
+    <span>向前</span>
+  </div>
+  <div class="item">
+    <code>c-o</code>
+    <span>向后</span>
+  </div>
+  <div class="item">
+    <code>gd</code>
+    <span>跳转定义</span>
+  </div>
+  <div class="item">
+    <code>gi</code>
+    <span>上一次编辑的地方，并编辑</span>
+  </div>
 </div>
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
-
 ---
-src: ./pages/multiple-entries.md
-hide: false
+layout: image-left
+image: https://cover.sli.dev?t=marco
 ---
 
----
+# 宏
+<div class="custom-center">
+  <div v-click>
+  宏命令的基本语法如下：
 
-# Monaco Editor
+  ```vim
+  qa                     开始记录动作到寄存器 a
+  q (while recording)    停止记录
+  ```
+  </div>
+  <div v-click>
+  你可以使用小写字母 （a-z）去存储宏命令。并通过如下的命令去调用：
+  
+  ```vim
+  @a    Execute macro from register a
+  @@    Execute the last executed macros
+  ```
+  </div>
+  <div v-click>
+    <Link to="3">如何给函数包裹一个节流?</Link>
+  </div>
+</div>
 
-Slidev provides built-in Moanco Editor support.
+<!-- 
+1. margo 基本用法
+2. 处理最开始提出的问题: 包裹函数
+-->
 
-Add `{monaco}` to the code block to turn it into an editor:
+--- 
+layout: end
+--- 
 
-```ts {monaco}
-import { ref } from 'vue'
-import hello from './external'
-
-const code = ref('const a = 1')
-hello()
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-function fibonacci(n: number): number {
-  return n <= 1
-    ? n
-    : fibonacci(n - 1) + fibonacci(n - 2) // you know, this is NOT the best way to do it :P
-}
-
-console.log(Array.from({ length: 10 }, (_, i) => fibonacci(i + 1)))
-```
-
----
-layout: center
-class: text-center
----
-
-# Learn More
-
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+# 谢谢
+<!-- 
+疑问解答
+-->

@@ -1,0 +1,42 @@
+.quote {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote-link {
+  color: green;
+  text-align: right;
+}
+
+.layout-2-col {
+  display: flex;
+  flex-direction: row-reverse;
+  .col {
+    flex: 1;
+  }
+}
+
+.custom-two-cols {
+  display: flex;
+  gap: 20px;
+  > ul {
+    list-style: none;
+  }
+}
+.custom-center{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .item {
+    display: flex;
+    gap: 20px;
+  }
+}
